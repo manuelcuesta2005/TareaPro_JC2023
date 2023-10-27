@@ -1,5 +1,10 @@
+import { Container } from '../../components/container/container'
+import { FormSignIn } from '../../components/formSignIn/formSignIn'
+
 export const SignIn = () => {
   return (
-    <h1>hola mundo</h1>
+    <Container>
+      <FormSignIn />
+    </Container>
   )
 }

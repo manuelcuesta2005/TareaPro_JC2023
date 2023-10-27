@@ -4,7 +4,7 @@ import { SignIn } from '../pages/SignIn/SignIn'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: 'login',
     Component: Login
   },
   {
