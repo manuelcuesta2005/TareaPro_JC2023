@@ -1,11 +1,11 @@
-import { Container } from '../../components/container/container'
+import { ContainerForm } from '../../components/container-form/container-form'
 import { FormLogin } from '../../components/formLogin/formLogin'
 import './Login.css'
 
 export const Login = () => {
   return (
-    <Container>
+    <ContainerForm>
       <FormLogin />
-    </Container>
+    </ContainerForm>
   )
 }
