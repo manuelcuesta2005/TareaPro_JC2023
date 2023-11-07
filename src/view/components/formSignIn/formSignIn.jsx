@@ -1,8 +1,35 @@
-import { Link } from 'react-router-dom'
+// import { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+// import { TodosContext } from '../../../context/todos'
+import { API_URL } from '../../../env'
 
 export const FormSignIn = () => {
+// const [todo, setTodo] = useContext(TodosContext)
+  const navigate = useNavigate()
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    let body = {}
+    for (const element of event.target.elements) {
+      if (element.name) {
+        body = { ...body, [element.name]: element.value }
+      }
+    }
+
+    fetch(API_URL + '/api/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    }).then(response => response.json())
+      .then(response => {
+        window.alert('Bienvenido a Tarea Pro, ', response.firstName)
+        navigate('/dashboard')
+      })
+  }
   return (
-    <form className='form'>
+    <form className='form' onSubmit={handleSubmit}>
       <h2 className='form__title'>Tarea Pro</h2>
       <h4 className='form__subtitle'>Login</h4>
       <fieldset>
@@ -23,7 +50,7 @@ export const FormSignIn = () => {
           <input type='password' id='password' />
         </div>
       </fieldset>
-      <button type='button' className='form__button'>Login</button>
+      <button type='submit' className='form__button'>Sign In</button>
       <p>have you a account? <Link to='/login' className='form__link'>Log in</Link> </p>
     </form>
   )
