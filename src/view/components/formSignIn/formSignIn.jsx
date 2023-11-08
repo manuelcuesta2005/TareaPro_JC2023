@@ -1,10 +1,10 @@
-// import { useContext } from 'react'
+import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-// import { TodosContext } from '../../../context/todos'
+import { TodosContext } from '../../../context/todos'
 import { API_URL } from '../../../env'
 
 export const FormSignIn = () => {
-// const [todo, setTodo] = useContext(TodosContext)
+  const { dispatch } = useContext(TodosContext)
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
@@ -24,7 +24,8 @@ export const FormSignIn = () => {
       body: JSON.stringify(body)
     }).then(response => response.json())
       .then(response => {
-        window.alert('Bienvenido a Tarea Pro, ', response.firstName)
+        dispatch({ type: 'LOGIN', payload: response.user })
+        window.alert('Bienvenido a Tarea Pro, ' + response.user.firstName)
         navigate('/dashboard')
       })
   }
@@ -35,19 +36,19 @@ export const FormSignIn = () => {
       <fieldset>
         <div>
           <label htmlFor='firstName'>First Name </label>
-          <input type='text' id='firstName' />
+          <input type='text' id='firstName' name='firstName' />
         </div>
         <div>
           <label htmlFor='lastName'>Last Name </label>
-          <input type='text' id='lastName' />
+          <input type='text' id='lastName' name='lastName' />
         </div>
         <div>
           <label htmlFor='email'>Email </label>
-          <input type='email' id='email' />
+          <input type='email' id='email' name='email' />
         </div>
         <div>
           <label htmlFor='password'>Password </label>
-          <input type='password' id='password' />
+          <input type='password' id='password' name='password' />
         </div>
       </fieldset>
       <button type='submit' className='form__button'>Sign In</button>

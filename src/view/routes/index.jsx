@@ -3,6 +3,7 @@ import { Layout } from '../components/layout/layout'
 import { Dashboard } from '../pages/Dashboard/Dashboard'
 import { Login } from '../pages/Login/Login'
 import { SignIn } from '../pages/SignIn/SignIn'
+import { ProtectedRoute } from './ProtectedRoute'
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'dashboard',
-        Component: Dashboard
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        )
       }
     ]
   }

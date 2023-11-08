@@ -1,9 +1,38 @@
-import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { TodosContext } from '../../../context/todos'
+import { API_URL } from '../../../env'
 import './formLogin.css'
 
 export const FormLogin = () => {
+  const { dispatch } = useContext(TodosContext)
+  const navigate = useNavigate()
+
+  const handleLogin = (event) => {
+    event.preventDefault()
+    let body = {}
+    for (const element of event.target.elements) {
+      if (element.name) {
+        body = { ...body, [element.name]: element.value }
+      }
+    }
+    fetch(API_URL + '/api/user/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    }).then(response => response.json())
+      .then(response => {
+        dispatch({ type: 'LOGIN', payload: response.user })
+        navigate('/dashboard')
+      }
+
+      )
+  }
+
   return (
-    <form className='form'>
+    <form className='form' onSubmit={handleLogin}>
       <h2 className='form__title'>Tarea Pro</h2>
       <h4 className='form__subtitle'>Login</h4>
       <fieldset>
