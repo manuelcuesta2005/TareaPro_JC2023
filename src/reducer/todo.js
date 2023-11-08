@@ -9,7 +9,7 @@ export function reducer (state, action) {
     case 'LOGIN': return { ...state, user: action.payload }
     case 'LOGOUT' : return { ...state, user: null }
     case 'GET_TODO': return { ...state, todos: action.payload }
-    case 'ADD_TODO': return { ...state, todos: [...state.todo, action.payload] }
+    case 'CREATE_TODO': return { ...state, todos: [...state.todo, action.payload] }
     case 'UPDATE_TODO': {
       const todoIndex = state.todos.findIndex(todo => todo._id === action.payload._id)
       state.todos[todoIndex] = action.payload
