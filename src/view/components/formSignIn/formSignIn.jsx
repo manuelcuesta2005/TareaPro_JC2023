@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { TodosContext } from '../../../context/todos'
-import { API_URL } from '../../../env'
+import { API_URL_USER } from '../../../env'
 
 export const FormSignIn = () => {
   const { dispatch } = useContext(TodosContext)
@@ -16,7 +16,7 @@ export const FormSignIn = () => {
       }
     }
 
-    fetch(API_URL + '/api/user', {
+    fetch(API_URL_USER, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

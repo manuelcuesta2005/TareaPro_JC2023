@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { TodosContext } from '../../../context/todos'
-import { API_URL } from '../../../env'
+import { API_URL_USER } from '../../../env'
 import './formLogin.css'
 
 export const FormLogin = () => {
@@ -16,7 +16,7 @@ export const FormLogin = () => {
         body = { ...body, [element.name]: element.value }
       }
     }
-    fetch(API_URL + '/api/user/auth', {
+    fetch(API_URL_USER + '/auth', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
