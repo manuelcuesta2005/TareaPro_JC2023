@@ -35,12 +35,12 @@ export const FormLogin = () => {
     <form className='form' onSubmit={handleLogin}>
       <h2 className='form__title'>Tarea Pro</h2>
       <h4 className='form__subtitle'>Login</h4>
-      <fieldset>
-        <div>
+      <fieldset className='form__containerInput'>
+        <div className='form__containerInput--div'>
           <label htmlFor='email'>Email </label>
           <input type='email' id='email' />
         </div>
-        <div>
+        <div className='form__containerInput--div'>
           <label htmlFor='password'>Password </label>
           <input type='password' id='password' />
         </div>

@@ -3,7 +3,7 @@ import { Layout } from '../components/layout/layout'
 import { Dashboard } from '../pages/Dashboard/Dashboard'
 import { Login } from '../pages/Login/Login'
 import { SignIn } from '../pages/SignIn/SignIn'
-import { ProtectedRoute } from './ProtectedRoute'
+// import { ProtectedRoute } from './ProtectedRoute'
 
 export const router = createHashRouter([
   {
@@ -20,11 +20,12 @@ export const router = createHashRouter([
     children: [
       {
         path: 'dashboard',
-        element: (
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        )
+        Component: Dashboard
+      // element: (
+      //   <ProtectedRoute>
+      //     <Dashboard />
+      //   </ProtectedRoute>
+      // )
       }
     ]
   }

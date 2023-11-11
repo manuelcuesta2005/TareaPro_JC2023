@@ -10,7 +10,7 @@
     border-radius: 12px;
 }
 
-fieldset{
+.form__containerInput{
     width: 90%;
     border: none;
     display: flex;
@@ -18,14 +18,14 @@ fieldset{
     gap: 12px;
 }
 
-fieldset div{
+.form__containerInput .form__containerInput--div{
     display: flex;
     flex-direction: column;
     gap: 2px;
     margin: 5px 0;
 }
 
-fieldset div input{
+.form__containerInput .form__containerInput--div input{
     width: 100%;
     height: 30px;
     border: 1px solid #000;

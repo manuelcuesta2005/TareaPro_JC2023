@@ -33,20 +33,20 @@ export const FormSignIn = () => {
     <form className='form' onSubmit={handleSubmit}>
       <h2 className='form__title'>Tarea Pro</h2>
       <h4 className='form__subtitle'>Login</h4>
-      <fieldset>
-        <div>
+      <fieldset className='form__containerInput'>
+        <div className='form__containerInput--div'>
           <label htmlFor='firstName'>First Name </label>
           <input type='text' id='firstName' name='firstName' />
         </div>
-        <div>
+        <div className='form__containerInput--div'>
           <label htmlFor='lastName'>Last Name </label>
           <input type='text' id='lastName' name='lastName' />
         </div>
-        <div>
+        <div className='form__containerInput--div'>
           <label htmlFor='email'>Email </label>
           <input type='email' id='email' name='email' />
         </div>
-        <div>
+        <div className='form__containerInput--div'>
           <label htmlFor='password'>Password </label>
           <input type='password' id='password' name='password' />
         </div>

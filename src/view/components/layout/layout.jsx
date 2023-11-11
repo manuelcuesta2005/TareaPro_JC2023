@@ -3,6 +3,7 @@ import { Navbar } from '../navbar/navbar'
 // import { Outlet } from 'react-router-dom'
 import './layout.css'
 import { Container } from '../container/container'
+import { Outlet } from 'react-router-dom'
 
 export const Layout = () => {
   return (
@@ -10,6 +11,7 @@ export const Layout = () => {
       <Container>
         <Navbar />
         <Header />
+        <Outlet />
       </Container>
     </>
   )
