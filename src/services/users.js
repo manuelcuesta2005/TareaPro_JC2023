@@ -11,3 +11,14 @@ export const newUser = (body) => {
     .then(response => response.json())
     .then(response => response.user)
 }
+
+export const loginUser = (_id) => {
+  return fetch(API_URL_USER + '/auth', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ _id })
+  }).then(response => response.json())
+    .then(response => response.user)
+}
