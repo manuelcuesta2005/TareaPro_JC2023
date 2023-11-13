@@ -16,19 +16,21 @@ export const FormLogin = () => {
         body = { ...body, [element.name]: element.value }
       }
     }
+
     fetch(API_URL_USER + '/auth', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
-    }).then(response => response.json())
+    })
+      .then(response => response.json())
       .then(response => {
+        window.sessionStorage.setItem('_id', response._id)
+        console.log('user id: ' + window.sessionStorage.getItem('_id'))
         dispatch({ type: 'LOGIN', payload: response.user })
-        navigate('/dashboard')
-      }
-
-      )
+        navigate('/home/dashboard')
+      })
   }
 
   return (
@@ -38,14 +40,14 @@ export const FormLogin = () => {
       <fieldset className='form__containerInput'>
         <div className='form__containerInput--div'>
           <label htmlFor='email'>Email </label>
-          <input type='email' id='email' />
+          <input type='email' id='email' required />
         </div>
         <div className='form__containerInput--div'>
           <label htmlFor='password'>Password </label>
-          <input type='password' id='password' />
+          <input type='password' id='password' required />
         </div>
       </fieldset>
-      <button type='button' className='form__button'>Login</button>
+      <button type='submit' className='form__button'>Login</button>
       <p> Dont have a account? <Link to='/sign-in' className='form__link'>Create new account</Link> </p>
     </form>
   )

@@ -26,7 +26,7 @@ export const FormSignIn = () => {
       .then(response => {
         dispatch({ type: 'LOGIN', payload: response.user })
         window.alert('Bienvenido a Tarea Pro, ' + response.user.firstName)
-        navigate('/dashboard')
+        navigate('/home/dashboard')
       })
   }
   return (
@@ -36,19 +36,19 @@ export const FormSignIn = () => {
       <fieldset className='form__containerInput'>
         <div className='form__containerInput--div'>
           <label htmlFor='firstName'>First Name </label>
-          <input type='text' id='firstName' name='firstName' />
+          <input type='text' id='firstName' name='firstName' required />
         </div>
         <div className='form__containerInput--div'>
           <label htmlFor='lastName'>Last Name </label>
-          <input type='text' id='lastName' name='lastName' />
+          <input type='text' id='lastName' name='lastName' required />
         </div>
         <div className='form__containerInput--div'>
           <label htmlFor='email'>Email </label>
-          <input type='email' id='email' name='email' />
+          <input type='email' id='email' name='email' required />
         </div>
         <div className='form__containerInput--div'>
           <label htmlFor='password'>Password </label>
-          <input type='password' id='password' name='password' />
+          <input type='password' id='password' name='password' required />
         </div>
       </fieldset>
       <button type='submit' className='form__button'>Sign In</button>

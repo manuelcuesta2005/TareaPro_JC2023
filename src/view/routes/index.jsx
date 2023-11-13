@@ -15,7 +15,7 @@ export const router = createHashRouter([
     Component: SignIn
   },
   {
-    path: '',
+    path: 'home',
     Component: Layout,
     children: [
       {
