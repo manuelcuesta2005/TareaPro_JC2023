@@ -2,17 +2,17 @@ import './navbar.css'
 import Home from '../../../assets/img/home.png'
 import logout from '../../../assets/img/logout.png'
 import userSettings from '../../../assets/img/user-cog.png'
+import { useContext } from 'react'
+import { TodosContext } from '../../../context/todos'
 import { useNavigate } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
+  const { dispatch } = useContext(TodosContext)
   const navigate = useNavigate()
 
   const Logout = () => {
-    window.localStorage.clear()
-    if (window.localStorage.clear() === undefined) {
-      navigate('/login')
-    }
+    dispatch({ type: 'LOGOUT' })
+    navigate('/login')
   }
 
   return (

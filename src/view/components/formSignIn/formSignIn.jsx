@@ -24,6 +24,10 @@ export const FormSignIn = () => {
       body: JSON.stringify(body)
     }).then(response => response.json())
       .then(response => {
+        window.sessionStorage.setItem('_id', response._id)
+        console.log('user ID: ' + window.sessionStorage.getItem('_id'))
+        //  window.sessionStorage.setItem('token', response.token)
+        //  dispatch({ type: 'LOGIN', payload: true })
         dispatch({ type: 'LOGIN', payload: response.user })
         window.alert('Bienvenido a Tarea Pro, ' + response.user.firstName)
         navigate('/home/dashboard')

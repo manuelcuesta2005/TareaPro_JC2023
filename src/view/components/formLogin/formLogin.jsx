@@ -10,27 +10,28 @@ export const FormLogin = () => {
 
   const handleLogin = (event) => {
     event.preventDefault()
-    let body = {}
-    for (const element of event.target.elements) {
-      if (element.name) {
-        body = { ...body, [element.name]: element.value }
-      }
-    }
-
     fetch(API_URL_USER + '/auth', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify({
+        email: event.target.elements.email.value,
+        password: event.target.elements.password.value
+      })
     })
-      .then(response => response.json())
-      .then(response => {
-        window.sessionStorage.setItem('_id', response._id)
-        console.log('user id: ' + window.sessionStorage.getItem('_id'))
-        dispatch({ type: 'LOGIN', payload: response.user })
+      .then((response) => {
+        if (response.ok) {
+          return response.json()
+        } else {
+          throw new Error('Error al iniciar sesión')
+        }
+      })
+      .then((data) => {
+        dispatch({ type: 'LOGIN', payload: data.user })
         navigate('/home/dashboard')
       })
+      .catch(error => console.error(error))
   }
 
   return (
