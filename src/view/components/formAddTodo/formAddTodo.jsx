@@ -9,7 +9,7 @@ export const FormAddTodo = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    let body = {}
+    let body = { userId: state.user._id, isCompleted: false }
     for (const element of event.target.elements) {
       if (element.name) {
         body = { ...body, [element.name]: element.value }

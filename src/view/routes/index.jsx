@@ -20,7 +20,6 @@ export const router = createHashRouter([
     children: [
       {
         path: 'dashboard',
-        Component: Dashboard,
         element: (
           <ProtectedRoute>
             <Dashboard />

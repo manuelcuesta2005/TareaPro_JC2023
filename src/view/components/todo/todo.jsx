@@ -7,11 +7,11 @@ import Trash from '../../../assets/icons/trash.png'
 import Check from '../../../assets/icons/check.png'
 import './todo.css'
 
-export const Todo = ({ todos }) => {
-  const { dispatch } = useContext(TodosContext)
+export const Todo = ({ todo }) => {
+  const { state, dispatch } = useContext(TodosContext)
 
   const handleDelete = () => {
-    deleteTodo(todos._id)
+    deleteTodo(state.todos._id)
       .then(todos => {
         window.alert('la Tarea: ' + todos.name + '; Ha sido eliminada')
         dispatch({ type: 'DELETE_TODO', payload: todos._id })
@@ -20,11 +20,14 @@ export const Todo = ({ todos }) => {
 
   return (
     <div className='card'>
-      <h3 className='card__title'>{todos.name}</h3>
-      <p className='card__description'>{todos.description}</p>
-      <button onClick={handleDelete}><img src={Trash} alt='trash' /></button>
-      <button><img src={Edit} alt='pencil' /></button>
-      <button><img src={Check} alt='check' /></button>
+      <h3 className='card__title'>{todo.name}</h3>
+      <p className='card__description'>{todo.description}</p>
+      <p className='card__time'>{todo.finishDate}</p>
+      <div className='card__buttons'>
+        <button onClick={handleDelete}><img src={Trash} alt='trash' width={32} /></button>
+        <button><img src={Edit} alt='pencil' width={32} /></button>
+        <button><img src={Check} alt='check' width={32} /></button>
+      </div>
     </div>
   )
 }
