@@ -15,11 +15,16 @@
 .card__buttons{
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 10px;
 }
 
 .card__buttons button{
     width: 36px;
     height: 36px;
+    border: 1px solid #000;
+    border-radius: 12px;
 }
 
+.card__buttons img{
+    filter: invert(1.0);
+}

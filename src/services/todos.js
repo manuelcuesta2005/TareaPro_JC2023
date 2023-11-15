@@ -1,11 +1,5 @@
 import { API_URL_TODO } from '../env'
 
-export const getTodo = () => {
-  return fetch(API_URL_TODO)
-    .then(response => response.json())
-    .then(response => response.todos)
-}
-
 export const deleteTodo = (todoId) => {
   return fetch(API_URL_TODO + '/' + todoId, {
     method: 'DELETE',
@@ -14,7 +8,7 @@ export const deleteTodo = (todoId) => {
     }
   })
     .then(response => response.json())
-    .then(response => response.todos)
+    .then(response => response.todo)
 }
 
 export const createTodo = (body) => {
@@ -26,7 +20,7 @@ export const createTodo = (body) => {
     body: JSON.stringify(body)
   })
     .then(response => response.json())
-    .then(response => response.todos)
+    .then(response => response.todo)
 }
 
 export const updateTodo = (body) => {
@@ -38,5 +32,5 @@ export const updateTodo = (body) => {
     body: JSON.stringify(body)
   })
     .then(response => response.json())
-    .then(response => response.todos)
+    .then(response => response.todo)
 }

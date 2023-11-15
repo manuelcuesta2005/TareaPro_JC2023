@@ -42,15 +42,15 @@ export const FormAddTodo = () => {
       <fieldset className='form--container'>
         <div className='form--container__input'>
           <label htmlFor='name'>Name</label>
-          <input type='text' id='name' name='name' />
+          <input type='text' id='name' name='name' required defaultValue={state.currentTodo ? state.currentTodo.name : ''} />
         </div>
         <div className='form--container__input'>
           <label htmlFor='description'>Description</label>
-          <input type='text' id='description' name='description' />
+          <input type='text' id='description' name='description' required defaultValue={state.currentTodo ? state.currentTodo.description : ''} />
         </div>
         <div className='form--container__input'>
           <label htmlFor='finishDate'>Finish Date</label>
-          <input type='date' id='finishDate' name='finishDate' />
+          <input type='date' id='finishDate' name='finishDate' required defaultValue={state.currentTodo ? state.currentTodo.finishDate : ''} />
         </div>
       </fieldset>
       <button type='submit' className='formTodo__button'> {text} Tarea </button>

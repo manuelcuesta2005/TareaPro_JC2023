@@ -1,7 +1,7 @@
 export function formatDate (date) {
   const fecha = new Date(date)
   let month = '' + fecha.getMonth()
-  let day = '' + fecha.getDate()
+  let day = '' + (fecha.getDate() + 1)
   const year = fecha.getFullYear()
 
   if (month.length < 2) {
