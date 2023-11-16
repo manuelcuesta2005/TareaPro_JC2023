@@ -1,10 +1,12 @@
 .containerTodo{
-    width: 75%;
+    width: 80%;
+    height: 45%;
     position: absolute;
     top: 23vw;
-    left: 17vw;
+    left: 16vw;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 16px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }

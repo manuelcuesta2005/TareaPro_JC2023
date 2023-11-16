@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext } from 'react'
-import iconUser from '../../../assets/img/user-circle.png'
+import iconUser from '../../../assets/img/user.png'
 import { TodosContext } from '../../../context/todos'
 import './header.css'
 
