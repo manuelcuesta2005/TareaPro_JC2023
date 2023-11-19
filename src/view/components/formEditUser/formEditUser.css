@@ -1,0 +1,49 @@
+.form--editUser{
+    width: 35vw;
+    height: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #E6FDFF;
+    border: 1px solid #000;
+    border-radius: 18px;
+    padding: 10px 5px;
+    box-shadow: 14px 14px 20px -8px rgba(0,0,0,0.65);
+}
+
+.form--editUser img{
+    width: 10vw;
+    margin: 10px 0;
+}
+
+.form--edit{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: none;
+}
+
+.form--edit__input{
+    display: flex;
+    flex-direction: column;
+}
+
+.form--edit__input input{
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 16px;
+    padding: 5px 10px;
+}
+
+.form--edit__button{
+    width: 60%;
+    height: 30px;
+    background: #3792cb;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 16px;
+    cursor: pointer;
+}

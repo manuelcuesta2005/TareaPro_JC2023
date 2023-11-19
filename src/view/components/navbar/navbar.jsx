@@ -17,8 +17,8 @@ export const Navbar = () => {
 
   return (
     <nav className='sidebar'>
-      <img src={userSettings} alt='User settings' onClick={navigate('/home/editUser')} />
-      <img src={Home} alt='home' onClick={navigate('/home/dashboard')} />
+      <img src={userSettings} alt='User settings' onClick={() => navigate('/home/editUser')} />
+      <img src={Home} alt='home' onClick={() => navigate('/home/dashboard')} />
       <img src={logout} alt='logout' onClick={Logout} />
     </nav>
   )

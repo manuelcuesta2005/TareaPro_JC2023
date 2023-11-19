@@ -13,6 +13,17 @@
     background: #D2D8ED;
 }
 
+.content{
+    width: 80vw;
+    height: 39vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 10vw;
+    left: 15vw;
+}
+
 @media only screen and ( max-width: 768px) {
     .container{
         width: 100vw;

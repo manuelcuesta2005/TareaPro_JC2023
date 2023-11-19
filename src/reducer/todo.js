@@ -1,7 +1,8 @@
 export const initialState = {
   user: null,
   todos: [],
-  currentTodo: null
+  currentTodo: null,
+  setTodoByName: null
 }
 
 export function reducer (state, action) {
@@ -9,6 +10,7 @@ export function reducer (state, action) {
     case 'LOGIN': return { ...state, user: action.payload }
     case 'LOGOUT' : return { ...state, user: null }
     case 'GET_TODO': return { ...state, todos: action.payload }
+    case 'GET_TODO_BY_NAME' : return { ...state, setTodoById: state.todos.filter(todoName => todoName.name !== action.payload) }
     case 'CREATE_TODO': return { ...state, todos: [...state.todos, action.payload] }
     case 'UPDATE_TODO': {
       const _todoIndex = state.todos.findIndex(todo => todo._id === action.payload._id)
