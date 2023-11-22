@@ -48,8 +48,13 @@
     align-items: center;
 }
 
+.formTodo__button--search{
+    background: #fff;
+    color: #3792cb;
+    border: 2px solid #3792cb;
+    margin: 5px 0;
+}
+
 @media only screen and ( max-width: 768px) {
-    .formTodo{
-        top: 14vw;
-    }
+    
 }
